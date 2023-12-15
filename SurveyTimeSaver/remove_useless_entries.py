@@ -23,7 +23,9 @@ def remove_useless_papers(bibtex_file, output_file):
             ("booktitle" in entry and "workshop" in entry["booktitle"].lower()) or
             ("title" in entry and "proceedings" in entry["title"].lower()) or
             (entry["language"].lower() != "english") or 
-            (entry["abstract"] == "")
+            ("abstract" not in entry) or
+            (entry["abstract"].strip() == "") or
+            ("art performance" in entry["abstract"].lower())
         ):
             removed_entries.append(entry)
         else:
@@ -46,5 +48,5 @@ def remove_useless_papers(bibtex_file, output_file):
 
 # Use the function
 remove_useless_papers(
-    "/home/evilscript/Downloads/output.bib", "/home/evilscript/Downloads/output2.bib"
+    "/home/evilscript/Downloads/NPC & AI.bib", "/home/evilscript/Downloads/output.bib"
 )
