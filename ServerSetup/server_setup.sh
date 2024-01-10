@@ -25,7 +25,7 @@ if ! lspci | grep -i nvidia > /dev/null; then
 else
     # Install CUDA Toolkit
     log "Installing CUDA Toolkit..."
-    sudo apt install -y nvidia-cuda-toolkit
+    sudo apt install -y nvidia-cuda-toolkit nvidia-driver-535 nvidia-utils-535
     
     # Check if CUDA installation was successful
     cuda_installed=$(which nvcc)
